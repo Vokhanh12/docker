@@ -14,6 +14,6 @@ sudo docker ps -a
 sudo docker exec -it sqlserverlocaldev<name_sql_server> "bash"
 
 // Login database
-/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "Aa@123456789"
+/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P <password>"Aa@123456789"
 
 ```
