@@ -30,5 +30,8 @@ docker exec -it your_sql_server_container /opt/mssql-tools/bin/sqlcmd -S localho
 docker exec -it sqlserverlocaldev id
 sudo docker exec -u 10001<id> -it sqlserverlocaldev mkdir -p /tmp/fileSql<create file>
 
+run script create database => master
+sudo docker exec -it sqlserverlocaldev /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P 'Aa@123456789' -d master -i /tmp/fileSql/QLSinhVien.sql
+
 ```
 
