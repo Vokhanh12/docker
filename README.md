@@ -17,3 +17,13 @@ sudo docker exec -it sqlserverlocaldev<name_sql_server> "bash"
 /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P <password>"Aa@123456789"
 
 ```
+
+
+```bash
+Copy the SQL file into the Docker container:
+docker cp ~/file your_sql_server_container:/path/in/container
+
+un the SQL script inside the Docker container:
+docker exec -it your_sql_server_container /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P YourPassword -d YourDatabase -i /path/in/container/qlsv.sql
+```
+
