@@ -25,5 +25,10 @@ docker cp ~/file your_sql_server_container:/path/in/container
 
 un the SQL script inside the Docker container:
 docker exec -it your_sql_server_container /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P YourPassword -d YourDatabase -i /path/in/container/qlsv.sql
+
+
+docker exec -it sqlserverlocaldev id
+sudo docker exec -u 10001<id> -it sqlserverlocaldev mkdir -p /tmp/fileSql<create file>
+
 ```
 
