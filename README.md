@@ -35,3 +35,19 @@ sudo docker exec -it sqlserverlocaldev /opt/mssql-tools/bin/sqlcmd -S localhost 
 
 ```
 
+
+```bash
+Use straight command on docker bash
+docker exec -u o -it [name_container] [command_bash]
+
+create image
+docker commit [docker_id] [new_name]
+
+Run new container from new image with new mapping port
+example
+docker run -p 0.0.0.0:NEW_PORT:5432/tcp --name my-postgres-container-updated -e POSTGRES_PASSWORD=mysecretpassword -d my-postgres-image
+
+
+
+```
+
