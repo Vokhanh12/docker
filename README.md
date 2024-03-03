@@ -35,9 +35,9 @@ sudo docker exec -it sqlserverlocaldev /opt/mssql-tools/bin/sqlcmd -S localhost 
 
 ```
 
-
-
 <h4>Create Dockerfile to build image</h4>
+
+
 ```bash
 Use straight command on docker bash
 docker exec -u o -it [name_container] [command_bash]
