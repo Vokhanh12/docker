@@ -36,6 +36,8 @@ sudo docker exec -it sqlserverlocaldev /opt/mssql-tools/bin/sqlcmd -S localhost 
 ```
 
 
+
+<h4>Create Dockerfile to build image</h4>
 ```bash
 Use straight command on docker bash
 docker exec -u o -it [name_container] [command_bash]
@@ -46,6 +48,59 @@ docker commit [docker_id] [new_name]
 Run new container from new image with new mapping port
 example
 docker run -p 0.0.0.0:NEW_PORT:5432/tcp --name my-postgres-container-updated -e POSTGRES_PASSWORD=mysecretpassword -d my-postgres-image
+
+```bash
+# Sử dụng một image golang đã có sẵn
+FROM golang:latest
+
+# Sao chép mã nguồn vào container
+COPY . /app
+
+# Thiết lập thư mục làm việc
+WORKDIR /app
+
+# Build ứng dụng Golang
+RUN go build -o server .
+
+# Thiết lập biến môi trường cho kết nối PostgreSQL
+ENV PGHOST=rssagg
+ENV PGPORT=5432
+ENV PGDATABASE=mydatabase
+ENV PGUSER=myuser
+ENV PGPASSWORD=Aa@123456789
+
+# Chạy ứng dụng khi container được khởi chạy
+CMD ["./server"]
+```
+
+```bash
+// build docker image in folder app
+docker build -t name-image:tag .
+```
+
+<h4>Create and Run container</h4>
+
+```bash
+docker run --name name-container -d ten-image:tag
+```
+
+<h4>check log run container</h4>
+
+```bash
+docker logs name-container
+```
+
+<h4>show ip of docker</h4>
+
+
+```bash
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' name-container
+```
+
+
+
+
+
 
 
 
